@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, fromEvent, interval } from 'rxjs';
+import { BehaviorSubject, combineLatest, fromEvent, interval } from 'rxjs';
 import { map, scan, switchMap } from 'rxjs/operators';
-import { Letters, State } from './types';
+import { Letter, Letters, State } from './types';
 
 @Component({
   selector: 'app-alphabet-invasion-game',
@@ -35,6 +35,21 @@ export class AlphabetInvasionGameComponent {
 
   private keys$ = fromEvent(document, 'keydown').pipe(
     map((e: KeyboardEvent) => e.key)
+  );
+
+  private game$ = combineLatest([this.letters$, this.keys$]).pipe(
+    scan<[Letters, string], State>(
+      (acc: State, [letters, key]: [Letters, string]) =>
+        letters.ltrs[letters.ltrs.length - 1] &&
+        letters[letters.ltrs.length - 1].ltr === key
+          ? {
+              score: acc.score + 1,
+              letters: acc.letters.pop(),
+              ...acc,
+            }
+          : ({} as State),
+      { score: 0, level: 1, letters: [] }
+    )
   );
 
   private randomLetter = () => {
