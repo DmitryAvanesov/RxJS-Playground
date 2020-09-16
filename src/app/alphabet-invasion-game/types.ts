@@ -1,11 +1,6 @@
 export interface Letter {
-  ltr: string;
-  y: number;
-}
-
-export interface Letters {
-  ltrs: Letter[];
-  interval: number;
+  symbol: string;
+  position: number;
 }
 
 export interface State {
