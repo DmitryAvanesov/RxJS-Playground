@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, combineLatest, fromEvent, interval } from 'rxjs';
+import { BehaviorSubject, fromEvent, interval } from 'rxjs';
 import { map, scan, switchMap } from 'rxjs/operators';
 import { Letter, State } from './types';
 
@@ -14,7 +14,9 @@ export class AlphabetInvasionGameComponent implements OnInit {
     level: 1,
     letters: [],
   };
-  private width = 30;
+  spaceBetweenLetters = 50;
+  private numberOfRows = 12;
+  private numberOfCols = 8;
   private levelUpEvery = 20;
   private intervalSubject = new BehaviorSubject(1000);
 
@@ -31,18 +33,28 @@ export class AlphabetInvasionGameComponent implements OnInit {
       switchMap((period: number) => interval(period))
     );
 
-    letters$.subscribe((time: number) => {
+    letters$.subscribe((_time: number) => {
+      for (const letter of this.state.letters) {
+        letter.row++;
+      }
+
       this.state.letters.push({
         symbol: this.randomLetter(),
-        position: 0,
+        row: 0,
+        col: Math.floor(Math.random() * this.numberOfCols),
       });
+    });
+
+    this.keys$.subscribe((key: string) => {
+      if (this.state.letters[0].symbol === key) {
+        this.state.letters.shift();
+        this.state.score++;
+      }
 
       if (this.state.score > 0 && this.state.score % this.levelUpEvery === 0) {
         this.state.letters = [];
         this.state.level++;
       }
     });
-
-    this.keys$.subscribe();
   }
 }

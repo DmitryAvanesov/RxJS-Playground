@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AlphabetInvasionGameComponent } from './alphabet-invasion-game.component';
@@ -8,9 +9,8 @@ describe('AlphabetInvasionGameComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AlphabetInvasionGameComponent ]
-    })
-    .compileComponents();
+      declarations: [AlphabetInvasionGameComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

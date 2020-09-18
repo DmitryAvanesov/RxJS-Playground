@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="stats"></div>
+  <div class="game">
+    <span
+      class="letter"
+      *ngFor="let letter of state.letters"
+      [ngStyle]="{
+        'top.px': letter.row * spaceBetweenLetters,
+        'left.px': letter.col * spaceBetweenLetters
+      }"
+    >
+      {{ letter.symbol }}
+    </span>
+  </div>
+  <p class="game-over"></p>
+</div>

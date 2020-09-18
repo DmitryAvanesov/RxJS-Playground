@@ -1,6 +1,7 @@
 export interface Letter {
   symbol: string;
-  position: number;
+  row: number;
+  col: number;
 }
 
 export interface State {
