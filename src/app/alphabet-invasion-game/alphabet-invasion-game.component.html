@@ -1,16 +1,35 @@
 <div class="container">
-  <div class="stats"></div>
-  <div class="game">
-    <span
-      class="letter"
-      *ngFor="let letter of state.letters"
-      [ngStyle]="{
-        'top.px': letter.row * spaceBetweenLetters,
-        'left.px': letter.col * spaceBetweenLetters
-      }"
-    >
-      {{ letter.symbol }}
-    </span>
+  <div class="stats">
+    <span class="stats-element">Score: {{ state.score }}</span>
+    <span class="stats-element">Level: {{ state.level }}</span>
   </div>
-  <p class="game-over"></p>
+
+  <div
+    class="game"
+    [ngStyle]="{
+      'height.px': spaceBetweenLetters * numberOfRows
+    }"
+  >
+    <div
+      class="row"
+      [ngStyle]="{
+        'height.px': spaceBetweenLetters
+      }"
+      *ngFor="let letter of state.letters.reverse()"
+    >
+      <span
+        class="letter"
+        [ngClass]="{ finished: letter.row === numberOfRows }"
+        [ngStyle]="{
+          'left.px': letter.col * spaceBetweenLetters
+        }"
+      >
+        {{ letter.symbol }}
+      </span>
+    </div>
+  </div>
+
+  <p class="game-over" *ngIf="gameOverSubject$ | async">
+    {{ gameOverText }}
+  </p>
 </div>
