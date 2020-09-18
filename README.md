@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Alphabet Invasion Game
 
-![Alphabet Invasion Game](https://downloader.disk.yandex.ru/preview/e9bcdf2cfe0e12c27ce00bcbd7a333ed98400b3c478d1204d4cfb0e3153b9851/5f649e43/AgkNDrmC1_Rkwp3EDN8088Q4vOhglvhnmPjX_S9apR06mUJsBxIFduXythpUQNUdXjtgvhs6TfYnxqewNBNTMw==?uid=0&filename=2020-09-18_14-44-59.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&owner_uid=98733006&size=2048x2048)
+![Alphabet Invasion Game](https://downloader.disk.yandex.ru/preview/cfecdde12b4190555b57dcc8e59b71783e2a2e35a157d0cf8691cd282c33aedc/5f649fb4/YQ1avd0RzQd5xJ8t7XIsLl5nx6r5iw8SCrXSSYQm5RLOS72wgbCcYGg39de2rjvDa6I2L4zaiz8t7gTx4psP3A==?uid=0&filename=2020-09-18_14-44-59+%282%29.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&owner_uid=98733006&size=2048x2048)
