@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "RxJS-Playground"
+    }
+  },
+  "defaultProject": "RxJS-Playground",
+  "cli": {
+    "analytics": "6a4eb912-6b0c-400d-9e8b-2498ac5b215d"
+  }
 }
